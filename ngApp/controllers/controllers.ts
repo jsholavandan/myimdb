@@ -1,17 +1,47 @@
 namespace myimdb.Controllers {
 
-    export class HomeController {
-        public message = 'Hello from the home page!';
-        public movies;
+    export class MainController{
 
-        constructor(movieService:myimdb.Services.MovieService) {
-            this.movies = movieService.listMovies();
-        }
+      public login(){
+        this.$uibModal.open({
+          templateUrl:"ngApp/views/login.html",
+          controller: myimdb.Controllers.AccountController,
+          controllerAs: 'controller',
+          size:'sm'
+        });
+      }
+
+      public register(){
+        this.$uibModal.open({
+          templateUrl:'ngApp/views/register.html',
+          controller: myimdb.Controllers.AccountController,
+          controllerAs: 'controller',
+          size: 'sm'
+        });
+      }
+
+      public home(){
+        this.$state.go('home');
+      }
+
+      public logout(){
+        this.$rootScope.currentUser = false;
+        this.$rootScope.username = null;
+        this.$window.localStorage.removeItem('token');
+        this.$state.go('home');
+      }
+
+      constructor(private $uibModal:angular.ui.bootstrap.IModalService,
+                  private $state:ng.ui.IStateService,
+                  private $rootScope: ng.IRootScopeService,
+                  private $window: ng.IWindowService){
+
+        this.$rootScope.currentUser = false;
+
+      }
     }
 
+    angular.module("myimdb").controller("MainController", MainController);
 
-    export class AboutController {
-        public message = 'Hello from the about page!';
-    }
 
 }

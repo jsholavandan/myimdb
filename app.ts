@@ -5,9 +5,16 @@ import * as logger from 'morgan';
 import * as cookieParser from 'cookie-parser';
 import * as bodyParser from 'body-parser';
 import * as ejs from 'ejs';
+import * as mongoose from 'mongoose';
 
-import routes from './routes/index';
+import passport = require('passport');
+
+
 import users from './routes/users';
+import signup from './routes/signup';
+
+require('./models/user');
+require('./config/passport');
 
 let app = express();
 
@@ -26,8 +33,11 @@ app.use('/bower_components', express.static(path.join(__dirname, 'bower_componen
 app.use('/ngApp', express.static(path.join(__dirname, 'ngApp')));
 app.use('/api', express.static(path.join(__dirname, 'api')));
 
-app.use('/', routes);
-app.use('/users', users);
+app.use(passport.initialize());
+
+
+app.use('/routes/users', users);
+app.use('/routes/signup', signup);
 
 
 // APIs
@@ -37,6 +47,9 @@ app.use('/api', require('./api/movies'));
 app.use('/api', require('./api/genres'));
 app.use('/api', require('./api/guestbook'));
 app.use('/api', require('./api/deepThought'));
+
+mongoose.connect('mongodb://imdbuser:imdbpassword@ds119598.mlab.com:19598/myimdb');
+
 
 // redirect 404 to home for the sake of AngularJS client-side routes
 app.get('/*', function(req, res, next) {

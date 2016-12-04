@@ -1,19 +1,22 @@
 namespace myimdb.Services {
 
-    export class MovieService {
-        private MovieResource;
+    export class AccountService {
+      private RegisterResource;
+      private LoginResource;
 
-        public listMovies() {
-            return this.MovieResource.query();
-        }
+      public signUp(user){
+        return this.RegisterResource.save(user).$promise;
+      }
 
-        constructor($resource: ng.resource.IResourceService) {
-            this.MovieResource = $resource('/api/movies');
-        }
+      public login(userInfo){
+        return this.LoginResource.save(userInfo).$promise;
+      }
+
+
+      constructor($resource:ng.resource.IResourceService){
+        this.RegisterResource = $resource('/routes/signup/register');
+        this.LoginResource = $resource('/routes/users/login');
+      }
     }
-    angular.module('myimdb').service('movieService', MovieService);
-    export class MyService {
-
-    }
-    angular.module('myimdb').service('myService', MyService);
+    angular.module('myimdb').service('accountService', AccountService);
     }
