@@ -5,10 +5,11 @@ import User from '../models/user';
 
 let router = express.Router();
 
-router.post('/register', (req, res, next) => {  
+router.post('/register', (req, res, next) => {
   let user:any = new User();
   user.username = req.body.username;
   user.email = req.body.email;
+  user.role = req.body.role;
   user.setPassword(req.body.password);
   console.log(user);
 

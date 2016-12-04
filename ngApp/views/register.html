@@ -3,7 +3,7 @@
   <span class="glyphicon glyphicon-remove closeIconCls" aria-hidden="true" ng-click="controller.closeDialog()"></span>
 </div>
 <form name="registerForm" ng-submit="registerForm.$valid && controller.registerUser()" novalidate>
-  <div class="modal-body">  
+  <div class="modal-body">
     <div class="form-group">
       <label class="lblCls">User name:</label>
       <input type="text" name="username" ng-model="controller.user.username" class="form-control" required>
@@ -33,7 +33,7 @@
       </ng-messages>
     </div>
   </div>
-  <flash-message duration="5000"></flash-message>
+  <flash-message duration="5000" on-dismiss="controller.closeDialog()"></flash-message>
   <div class="modal-footer">
     <button type="submit" class="btn btn-primary buttonCls">register</button>
     <button type="button" class="btn btn-warning buttonCls" ng-click="controller.closeDialog()">Cancel</button>

@@ -13,6 +13,7 @@ namespace myimdb.Controllers {
           this.setToken(res);
           this.$rootScope.currentUser = this.isLoggedIn();
           this.$rootScope.username = this.userCredentials.username;
+          this.$rootScope.role = res.role;
           this.$state.go('home');
           console.log(res);
         }).catch((err) =>{
@@ -41,15 +42,17 @@ namespace myimdb.Controllers {
 
       public registerUser(){
       //  console.log(this.user);
+        this.user.role = "user";
         this.accountService.signUp(this.user).then((data) => {
-          this.$state.go('login');
+          //this.$state.go('login');
           console.log(data)
-      //  this.Flash.create('success', "registered" );
+          this.Flash.create('success', "Registered. Please login." );
         }).catch((err) => {
-          //  this.Flash.create('danger', 'Error occured. Please try again.');
+          this.Flash.create('danger', 'Error occured. Please try again.');
           console.log(err);
+          this.closeDialog();
         });
-        this.closeDialog();
+
       }
 
       constructor(private $uibModalInstance:angular.ui.bootstrap.IModalServiceInstance,

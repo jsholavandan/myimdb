@@ -34,6 +34,9 @@
               <md-button class="nav-btn btnCls" ng-click="controller.register()">Register</md-button>
             </div>
             <div ng-if="currentUser !== false">
+              <md-button class="nav-btn btnCls" ng-click="controller.admin()">Admin</md-button>
+            </div>
+            <div ng-if="currentUser !== false">
               <md-button class="nav-btn btnCls" ng-click="controller.logout()">Logout</md-button>
             </div>
           </div>

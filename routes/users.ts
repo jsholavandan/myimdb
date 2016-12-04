@@ -19,7 +19,7 @@ router.post('/login', function(req, res, next){
     }
 
     if(user){
-      res.json({token: user.generateJWT()});
+      res.json({token: user.generateJWT(), role:user.role});
     }
     res.status(400).send(info);
   })(req, res, next);
