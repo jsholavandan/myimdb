@@ -1,6 +1,6 @@
 <div class="modalHeaderCls">
   <p class="modal-title headingCls">Register</p>
-  <span class="glyphicon glyphicon-remove closeIconCls" aria-hidden="true" ng-click="controller.closeDialog()"></span>
+  <span class="glyphicon glyphicon-remove regCloseIconCls" aria-hidden="true" ng-click="controller.closeDialog()"></span>
 </div>
 <form name="registerForm" ng-submit="registerForm.$valid && controller.registerUser()" novalidate>
   <div class="modal-body">
@@ -13,9 +13,10 @@
     </div>
     <div class="form-group">
       <label class="lblCls">Email:</label>
-      <input type="text" name="email" ng-model="controller.user.email" class="form-control" required>
+      <input type="text" name="email" ng-model="controller.user.email" class="form-control" required ng-pattern="/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/">
       <ng-messages for="registerForm.email.$error" class="error">
         <ng-message when="required">Email is required</ng-message>
+        <ng-message when="pattern">Please enter a valid email.</ng-message>
       </ng-messages>
     </div>
     <div class="form-group">

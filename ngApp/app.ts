@@ -22,7 +22,32 @@ namespace myimdb {
                 templateUrl: '/ngApp/views/register.html',
                 controller: myimdb.Controllers.AccountController,
                 controllerAs: 'controller'
+            })
+            .state('admin', {
+              url:'/admin',
+              templateUrl: '/ngApp/views/admin.html',
+              controller: myimdb.Controllers.AdminController,
+              controllerAs: 'controller'
+            })
+            .state('admin.listUsers', {
+              url:'/listUsers',
+              templateUrl:'/ngApp/views/admin.listUsers.html',
+              controller: myimdb.Controllers.UsersController,
+              controllerAs: 'controller'
+            })
+            .state('admin.editUser', {
+              url: '/editUser/:id',
+              templateUrl: '/ngApp/views/admin.editUser.html',
+              controller:myimdb.Controllers.EditUserController,
+              controllerAs: 'controller'
             });
+            /*
+            .state('admin.deleteUser', {
+              url: '/deleteUser/:id',
+              templateUrl:'/ngApp/views/admin.deleteUser.html',
+              controller:myimdb.Controllers.DeleteUserController,
+              controllerAs: 'controller'
+            });  */
 
         // Handle request for non-existent route
         $urlRouterProvider.otherwise('/home');

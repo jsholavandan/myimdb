@@ -69,8 +69,16 @@ md-toolbar input{
   display:inline;
 }
 
-.closeIconCls{
+.regCloseIconCls{
   margin-left: 210px;
+}
+
+.lgCloseIconCls{
+  margin-left: 220px;
+}
+
+.dialogCloseIconCls{
+  margin-left:185px;
 }
 
 .form-control{
@@ -88,6 +96,64 @@ md-toolbar input{
 
 .lblCls{
   font-size: 10px;
+}
+
+/*  */
+
+md-sidenav {
+   width: 130px;
+   min-width: 130px;
+   max-width: 130px;
+}
+
+md-sidenav{
+  background-color: rgb(66,66,66);
+  color:yellow;
+}
+
+.align-center{
+  text-align:center;
+}
+.tblCls{
+  border-bottom:1px solid brown;
+}
+
+/* table styles */
+.rowCls{
+  max-height: 40px;
+}
+
+
+
+.link-icon-Cls{
+/*  max-height: 22px;  */
+  margin-top: 10px;
+  margin-bottom: 9px;
+  font-size: 14px;
+  font-weight: bold;
+  color: blue;
+  cursor:pointer;
+}
+
+.delCls{
+  color:red;
+}
+
+.sideNavBtnCls{
+  font-size:12px;
+
+}
+
+select{
+  min-height: 30px;
+}
+
+.myFlashCls{
+  min-width: 250px;
+  text-align:center;
+  width:250px;
+  max-width: 250px;
+  margin:0 auto;
 }
 
 /*  */

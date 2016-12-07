@@ -31,13 +31,16 @@ namespace myimdb.Controllers {
         this.$state.go('home');
       }
 
+      public admin(){
+        this.$state.go('admin');
+      }
+
       constructor(private $uibModal:angular.ui.bootstrap.IModalService,
                   private $state:ng.ui.IStateService,
                   private $rootScope: ng.IRootScopeService,
                   private $window: ng.IWindowService){
 
         this.$rootScope.currentUser = false;
-
       }
     }
 

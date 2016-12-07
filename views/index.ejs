@@ -42,9 +42,9 @@
           </div>
         </div>
     </md-toolbar>
-    <div layout="column">
-      <md-content>
-        <ui-view></ui-view>
+    <div layout="column" flex layout-fill>
+      <md-content layout="column" flex layout-fill>
+        <ui-view layout="column" flex layout-fill></ui-view>
       </md-content>
     </div>
   </div>
@@ -66,6 +66,8 @@
   <script src="/ngApp/app.js"></script>
   <script src="/ngApp/controllers/controllers.js"></script>
   <script src="/ngApp/controllers/accountController.js"></script>
+  <script src="/ngApp/controllers/adminController.js"></script>
+  <script src="/ngApp/controllers/usersController.js"></script>
   <script src="/ngApp/services/services.js"></script>
 
 </body>

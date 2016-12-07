@@ -1,7 +1,10 @@
 namespace myimdb.Controllers {
 
     export class AccountController{
-      public userCredentials;
+      public userCredentials ={
+        username:'sai',
+        password:'baba'
+      };
       public user;
 
       public closeDialog(){
