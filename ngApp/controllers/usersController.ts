@@ -102,7 +102,6 @@ namespace myimdb.Controllers {
                   private usersService:myimdb.Services.UsersService,
                   private $scope:ng.IScope){
           this.user = this.usersService.getUser(userId);
-
       }
     }
 

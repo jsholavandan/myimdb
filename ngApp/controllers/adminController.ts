@@ -6,6 +6,14 @@ namespace myimdb.Controllers {
         this.$state.go('admin.listUsers');
       }
 
+      public listMovies(){
+        this.$state.go("admin.listMovies");
+      }
+
+      public listActors(){
+        this.$state.go("admin.listActors");
+      }
+
 
 
     constructor(private $state:ng.ui.IStateService, private $rootScope: ng.IRootScopeService){

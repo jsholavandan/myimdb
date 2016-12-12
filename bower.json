@@ -22,6 +22,10 @@
     "animate.css": "^3.5.1",
     "angular-material": "^1.1.1",
     "angular-password": "^1.0.3",
-    "angular-flash-alert": "^2.4.0"
+    "angular-flash-alert": "^2.4.0",
+    "angularjs-dropdown-multiselect": "^1.5.2"
+  },
+  "resolutions": {
+    "angular": "^1.5.5"
   }
 }

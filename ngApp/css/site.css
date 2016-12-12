@@ -2,6 +2,19 @@
   margin-left: 5px;
 }
 
+.titleDivCls{
+  height: 35px;
+  width: 100%;
+  background-color: #CC6600;
+  color:black;
+  padding-top:5px;
+}
+
+.titleDivCls div{
+  display:inline;
+  font-weight: bold;
+}
+
 .btnCls{
   min-width:35px;
   vertical-align: bottom;
@@ -149,11 +162,29 @@ select{
 }
 
 .myFlashCls{
-  min-width: 250px;
+  min-width: 350px;
   text-align:center;
   width:250px;
   max-width: 250px;
   margin:0 auto;
+}
+
+.textareaCls{
+  height: 35px;
+  font-size: 12px;
+}
+
+.selectCls{
+  font-size: 12px;
+
+}
+
+.dropdown-menu{
+  font-size:12px;
+}
+
+.deleteCloseIconCls{
+  margin-left: 175px;
 }
 
 /*  */

@@ -1,0 +1,29 @@
+<div class="titleDivCls">
+  <div class="titleCls" ng-click="controller.addMovie()">Add Movie</div>
+</div>
+
+<h3 class="align-center"><strong>Movies</strong></h3>
+<br>
+<div layout="row" layout-align="center start">
+  <div flex="15" class="tblCls align-center">
+    <strong>Name</strong>
+  </div>
+  <div flex="5" class="tblCls align-center">
+    Edit
+  </div>
+  <div flex="5" class="tblCls align-center">
+    Delete
+  </div>
+</div>
+<div ng-repeat="movie in controller.movies" layout="row" layout-align="center start" >
+  <div flex="15" class="tblCls align-center rowCls">
+  <p>{{movie.name}}</p>
+  </div>
+  <div flex="5" class="tblCls align-center rowCls">
+  <a ui-sref="admin.editMovie({id:movie._id})"><i class="material-icons link-icon-Cls">edit</i></a>
+  </div>
+  <div flex="5" class="tblCls align-center rowCls ">
+  <a href="#" ng-click="controller.deleteMovie(movie._id)"><i class="material-icons link-icon-Cls delCls">close</i></a>
+  </div>
+</div>
+<flash-message duration="5000" class="myFlashCls"></flash-message>

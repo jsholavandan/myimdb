@@ -1,6 +1,6 @@
 namespace myimdb {
 
-    angular.module('myimdb', ['ngFlash','ngPassword','ngAnimate','ui.router', 'ngResource', 'ngMaterial', 'ngMessages', 'ui.bootstrap']).config((
+    angular.module('myimdb', ['angularjs-dropdown-multiselect','ngFlash','ngPassword','ngAnimate','ui.router', 'ngResource', 'ngMaterial', 'ngMessages', 'ui.bootstrap']).config((
         $stateProvider: ng.ui.IStateProvider,
         $urlRouterProvider: ng.ui.IUrlRouterProvider,
         $locationProvider: ng.ILocationProvider
@@ -40,14 +40,43 @@ namespace myimdb {
               templateUrl: '/ngApp/views/admin.editUser.html',
               controller:myimdb.Controllers.EditUserController,
               controllerAs: 'controller'
-            });
-            /*
-            .state('admin.deleteUser', {
-              url: '/deleteUser/:id',
-              templateUrl:'/ngApp/views/admin.deleteUser.html',
-              controller:myimdb.Controllers.DeleteUserController,
+            })
+            .state('admin.listMovies', {
+              url: '/listMovies',
+              templateUrl: '/ngApp/views/admin.listMovies.html',
+              controller: myimdb.Controllers.MoviesController,
               controllerAs: 'controller'
-            });  */
+            })
+            .state('admin.addMovie', {
+              url: '/addMovies',
+              templateUrl: '/ngApp/views/admin.addMovie.html',
+              controller: myimdb.Controllers.AddMovieController,
+              controllerAs: 'controller'
+            })
+            .state('admin.editMovie', {
+              url:'/editMovie/:id',
+              templateUrl:'/ngApp/views/admin.editMovie.html',
+              controller: myimdb.Controllers.EditMovieController,
+              controllerAs: 'controller'
+            })
+            .state('admin.listActors',{
+              url:'/listActors',
+              templateUrl:'/ngApp/views/admin.listActors.html',
+              controller:myimdb.Controllers.ActorController,
+              controllerAs: 'controller'
+            })
+            .state('admin.addActor', {
+              url:'/addActors',
+              templateUrl:'/ngApp/views/admin.addActor.html',
+              controller:myimdb.Controllers.AddActorController,
+              controllerAs: 'controller'
+            })
+            .state('admin.editActor', {
+              url:'/editActor/:id',
+              templateUrl: '/ngApp/views/admin.editActor.html',
+              controller: myimdb.Controllers.EditActorController,
+              controllerAs: 'controller'
+            });
 
         // Handle request for non-existent route
         $urlRouterProvider.otherwise('/home');

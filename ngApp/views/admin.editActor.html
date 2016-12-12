@@ -1,0 +1,26 @@
+<h3 class="align-center"><strong>Edit Actor</strong></h3>
+<br>
+<div layout="row" layout-align="center start">
+  <form ng-submit="editActorForm.$valid && controller.editActor()" name="editActorForm">
+    <div class="form-group">
+      <label class="lblCls">Name:</label>
+      <input type="text" name="name" ng-model="controller.actor.name" class="form-control" required>
+      <ng-messages for="editActorForm.name.$error">
+        <ng-message when="required">User name is required.</ng-message>
+      </ng-messages>
+    </div>
+    <div class="form-group">
+      <label class="lblCls">Age</label>
+      <input type="text" name="Age" ng-model="controller.actor.age" class="form-control" required >
+      <ng-messages for="editActorForm.age.$error">
+        <ng-message when="required">Email is required.</ng-message>
+        <ng-message when="pattern">Please enter a valid email.</ng-message>
+      </ng-messages>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary buttonCls">Edit</button>
+      <button class="btn btn-danger buttonCls" ng-click="controller.closePage()">Cancel</button>
+    </div>
+  </form>
+</div>
+<flash-message duration="5000" on-dismiss="controller.goToListingsPage()" class="myFlashCls"></flash-message>

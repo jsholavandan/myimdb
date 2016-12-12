@@ -1,0 +1,11 @@
+<div class="modalHeaderCls">
+  <p class="modal-title headingCls">Delete Actor</p>
+  <span class="glyphicon glyphicon-remove dialogCloseIconCls" aria-hidden="true" ng-click="controller.closeDialog()"></span>
+</div>
+<div class="modal-body">
+  <p>Are you sure you want to delete the user <strong>{{controller.actor.name}}</strong>?
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary buttonCls" ng-click="controller.deleteActor(controller.actor._id)">Ok</button>
+  <button type="button" class="btn btn-warning buttonCls" ng-click="controller.closeDialog()">Cancel</button>
+</div>

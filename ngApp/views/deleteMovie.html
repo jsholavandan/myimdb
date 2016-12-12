@@ -1,0 +1,11 @@
+<div class="modalHeaderCls">
+  <p class="modal-title headingCls">Delete Movie</p>
+  <span class="glyphicon glyphicon-remove deleteCloseIconCls" aria-hidden="true" ng-click="controller.closeDialog()"></span>
+</div>
+<div class="modal-body">
+  <p>Are you sure you want to delete the Movie <strong>{{controller.movie.name}}</strong>?
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary buttonCls" ng-click="controller.deleteMovie(controller.movie._id)">Ok</button>
+  <button type="button" class="btn btn-warning buttonCls" ng-click="controller.closeDialog()">Cancel</button>
+</div>

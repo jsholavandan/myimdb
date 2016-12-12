@@ -13,6 +13,13 @@ import passport = require('passport');
 import users from './routes/users';
 import signup from './routes/signup';
 
+import cinemas from './api/cinemas';
+require('./models/cinema');
+
+import actors from './api/actors';
+require('./models/actor');
+
+
 require('./models/user');
 require('./config/passport');
 
@@ -38,6 +45,10 @@ app.use(passport.initialize());
 
 app.use('/routes/users', users);
 app.use('/routes/signup', signup);
+
+app.use('/api/cinemas', cinemas);
+app.use('/api/actors', actors);
+
 
 
 // APIs

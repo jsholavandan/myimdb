@@ -1,0 +1,34 @@
+<h5 class="align-center"><strong>Add Movie</strong></h5>
+<div layout="row" layout-align="center start">
+  <form  name="movieForm" ng-submit="movieForm.$valid && controller.addMovie()">
+    <div class="form-group">
+      <label class="lblCls">Name:</label>
+      <input type="text" name="name" ng-model="controller.cinema.name" class="form-control inputCls" required>
+    </div>
+    <div class="form-group">
+      <label class="lblCls">Director</label>
+      <input type="text" name="director" ng-model="controller.cinema.director" class="form-control inputCls" required>
+    </div>
+    <div class="form-group">
+      <label class="lblCls">Actors</label>
+      <div ng-dropdown-multiselect="" options="controller.actors" name="actors" selected-model="controller.actorsmodel" ng-model="controller.cinema.actors" extra-settings="controller.selectSettings" class="selectCls"></div>
+    </div>
+    <div class="form-group">
+      <label class="lblCls">Release Date</label>
+      <input type="Date" name="releasedate" ng-model="controller.cinema.releasedate" class="form-control inputCls">
+    </div>
+    <div class="form-group">
+      <label class="lblCls">Story</label>
+      <textarea cols="25"  name="story" ng-model="controller.cinema.story" class="form-control textareaCls">
+      </textarea>
+    </div>
+    <div class="form-group">
+      <label class="lblCls">Photo Url:</label>
+      <input type="text" name="photourl" ng-model="controller.cinema.photourl" class="form-control inputCls">
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary buttonCls">register</button>
+    </div>
+  </form>
+</div>
+<flash-message duration="5000" on-dismiss="controller.closeFlash()" class="myFlashCls"></flash-message>
