@@ -21,8 +21,8 @@
         <span flex></span>
         <div layout="row" layout-align="center center">
           <form>
-              <input type="text" name="searchTxt">
-              <md-icon ng-click="controller.sayHello()"><i class="material-icons iconsCls">search</i></md-icon>
+              <input type="text" name="searchTxt" ng-model="controller.searchTxt">
+              <md-icon ng-click="controller.search()"><i class="material-icons iconsCls">search</i></md-icon>
           </form>
         </div>
         <span flex></span>
@@ -75,6 +75,7 @@
   <script src="/ngApp/controllers/usersController.js"></script>
   <script src="/ngApp/controllers/moviesController.js"></script>
   <script src="/ngApp/controllers/actorController.js"></script>
+  <script src="/ngApp/controllers/homeController.js"></script>
 
   <!-- Services -->
   <script src="/ngApp/services/services.js"></script>

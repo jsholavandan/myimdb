@@ -10,6 +10,8 @@ namespace myimdb {
             .state('home', {
                 url: '/',
                 templateUrl: '/ngApp/views/home.html',
+                controller:myimdb.Controllers.HomeController,
+                controllerAs: 'controller'
             })
             .state('login', {
                 url: '/login',
@@ -75,6 +77,45 @@ namespace myimdb {
               url:'/editActor/:id',
               templateUrl: '/ngApp/views/admin.editActor.html',
               controller: myimdb.Controllers.EditActorController,
+              controllerAs: 'controller'
+            })
+            .state('displayMovie', {
+              url:'/displayMovie/:id',
+              templateUrl:'/ngApp/views/mainMovieDisplay.html',
+              controller: myimdb.Controllers.DisplayMovieController,
+              controllerAs: 'controller'
+            })
+            .state('displayMovie.displayDetails', {
+              url:'/displayDetails',
+              templateUrl: '/ngApp/views/displayDetails.html',
+              controller: myimdb.Controllers.MovieDetailsController,
+              controllerAs: 'controller',
+              params:{
+                'movieObj': null
+              }
+            })
+            .state('displayMovie.displayCast', {
+              url:"/displayCast",
+              templateUrl:'/ngApp/views/displayCast.html',
+              controller: myimdb.Controllers.DisplayCastController,
+              controllerAs: 'controller',
+              params: {
+                'movieObj' : null
+              }
+            })
+            .state('displayMovie.displayReviews', {
+              url:'/displayReviews',
+              templateUrl:'/ngApp/views/displayReviews.html',
+              controller: myimdb.Controllers.DisplayReviewsController,
+              controllerAs: 'controller',
+              params:{
+                'movieObj' : null
+              }
+            })
+            .state('searchResults', {
+              url:'/searchResults/:txt',
+              templateUrl:'/ngApp/views/searchResults.html',
+              controller: myimdb.Controllers.SearchMoviesController,
               controllerAs: 'controller'
             });
 

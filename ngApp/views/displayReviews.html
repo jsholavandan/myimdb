@@ -1,0 +1,37 @@
+<div layout="row" class="marginCls">
+  <h4 class=" displayCls"> User Reviews</h4>
+  <flash-message duration="5000" class="reviewFlashCls"></flash-message>
+</div>
+<div layout="column">
+  <form name="reviewForm" ng-submit="reviewForm.$valid && controller.addReview()">
+    <div layout="row" class="marginCls">
+      <label>Your Rating:&nbsp;&nbsp;&nbsp;</label>
+      <span  uib-rating ng-model="controller.rate" aria-labelledby="default-rating" on-hover="controller.hoveringOver(value)" on-leave="controller.overStar = null"></span>
+      <span class="label myRateCls" ng-class="{'label-warning': controller.percent<30, 'label-info': controller.percent>=30 && controller.percent<70, 'label-success': controller.percent>=70}" ng-show="controller.overStar">{{controller.percent}}%</span>
+    </div>
+    <br>
+    <div class="reviewDivCls marginCls">
+      <div class="form-group">
+        <label>Title:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+        <input type="text" name="title" ng-model="controller.reviewObj.title" class="reviewInputCls">
+      </div>
+      <div class="form-group">
+        <label>Review:</label>
+        <textarea class="reviewTextareacls" name="review" rows="4" cols="50" ng-model="controller.reviewObj.text"></textarea>
+      </div>
+    </div>
+    <div class="form-group marginBtnCls">
+      <button type="reset" class="btn btn-primary btnCls">Reset</button>
+      <button type="submit" class="btn btn-primary btnCls">Submit</button>
+    </div>
+  </form>
+  <div class="reviewsCls">
+    <div  ng-repeat="review in controller.movie.reviews">
+      <div class="reviewTxtCls">
+        <p class="titlePCls"><strong>{{review.title}}</strong></p>
+        <p class="usrCls">{{review.username}}</p>
+        <p>{{review.text}}</p>
+      </div>
+    </div>
+  </div>
+</div>

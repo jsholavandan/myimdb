@@ -1,3 +1,4 @@
+require('dotenv').config({silent:true});
 import * as express from 'express';
 import * as path from 'path';
 import * as favicon from 'serve-favicon';
@@ -14,6 +15,7 @@ import users from './routes/users';
 import signup from './routes/signup';
 
 import cinemas from './api/cinemas';
+import searchMovie from './api/search';
 require('./models/cinema');
 
 import actors from './api/actors';
@@ -48,6 +50,7 @@ app.use('/routes/signup', signup);
 
 app.use('/api/cinemas', cinemas);
 app.use('/api/actors', actors);
+app.use('/api/searchMovie', searchMovie);
 
 
 
@@ -59,7 +62,9 @@ app.use('/api', require('./api/genres'));
 app.use('/api', require('./api/guestbook'));
 app.use('/api', require('./api/deepThought'));
 
-mongoose.connect('mongodb://imdbuser:imdbpassword@ds119598.mlab.com:19598/myimdb');
+mongoose.connect(process.env.MONGO_URI, () => {
+  console.log(`connected to ${process.env.MONGO_URI}`);
+});
 
 
 // redirect 404 to home for the sake of AngularJS client-side routes

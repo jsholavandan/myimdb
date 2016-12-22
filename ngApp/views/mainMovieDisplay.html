@@ -1,0 +1,8 @@
+<div>
+  <md-nav-bar aria-label="navigation tabs" md-selected-nav-item="controller.curNavItem">
+    <md-nav-item md-nav-click="controller.showMovieDetails()" name="movieDetails">Movie</md-nav-item>
+    <md-nav-item md-nav-click="controller.showCast()" name="cast">Cast</md-nav-item>
+    <md-nav-item md-nav-click="controller.showReviews()" name="reviews">Reviews & Ratings</md-nav-item>
+  </md-nav-bar>
+  <ui-view layout="column" layout-fill flex></ui-view>
+</div>

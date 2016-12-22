@@ -17,6 +17,7 @@ namespace myimdb.Controllers {
           this.$rootScope.currentUser = this.isLoggedIn();
           this.$rootScope.username = this.userCredentials.username;
           this.$rootScope.role = res.role;
+          this.$rootScope.$broadcast("userLoggedIn");
           this.$state.go('home');
           console.log(res);
         }).catch((err) =>{

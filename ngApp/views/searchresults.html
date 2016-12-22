@@ -1,0 +1,13 @@
+<h3 class="align-center"><strong>Search Results</strong></h3>
+<br>
+<div layout="row" layout-align="center start">
+  <div layout="column" class="tblCls">
+      <div flex="20" class="rowCls">
+        <span><strong>Movie Name</strong></span>
+      </div>
+      <div flex="20" class="rowCls" ng-repeat="movie in controller.movies | orderBy: '-rate' | limitTo:5" >
+        <a href="#" ui-sref="displayMovie({id:movie._id})" class="nameCls"><span>{{movie.name}}</span></a>      
+      </div>
+  </div>
+</div>
+<flash-message duration="5000" class="myFlashCls"></flash-message>

@@ -1,2 +1,16 @@
-
-<h2>Home Page</h2>
+<h2 class="align-center">Welcome {{controller.username}}</h2>
+<br>
+<br>
+<h4 class="align-center">The top five movies of the week:</h4>
+<div layout="row" layout-align="center start">
+  <div layout="column" class="tblCls">
+      <div flex="20" class="rowCls">
+        <span><strong>Movie Name</strong></span>
+        <span class="pull-right"><strong>Ratings</strong></span>
+      </div>
+      <div flex="20" class="rowCls" ng-repeat="movie in controller.movies | orderBy: '-rate' | limitTo:5" >
+        <a href="#" ui-sref="displayMovie({id:movie._id})" class="nameCls"><span>{{movie.name}}</span></a>
+        <span class="pull-right"><span  uib-rating ng-model="movie.rate" aria-labelledby="default-rating" read-only="true"></span></span>
+      </div>
+  </div>
+</div>

@@ -28,6 +28,17 @@ md-toolbar.material-icons{
   font-size: 20px;
 }
 
+.rowCls{
+  border: 1px solid brown;
+  height: 35px;
+  padding:5px;
+}
+
+.tblCls{
+  width: 40%;
+}
+
+
 .inputCls{
   min-height:20px;
   height:30px;
@@ -187,4 +198,86 @@ select{
   margin-left: 175px;
 }
 
-/*  */
+.moviePhoto{
+  height: 150px;
+  margin:15px;
+}
+
+.storyDivCls{
+  margin-left:15px;
+}
+.marginCls{
+  margin-left: 15px;
+}
+
+.md-button._md-nav-button{
+  font-size: smaller;
+}
+md-sidenav.md-closed{
+  background-color: rgb(255,64,129);
+  color:white;
+}
+
+.myRateCls{
+  display:inline;
+  margin-left: 5px;
+}
+
+.reviewTextareacls{
+  font-size:12px;
+}
+
+.reviewInputCls{
+  font-size:12px;
+}
+
+.marginBtnCls{
+  margin-left: 260px;
+}
+
+.reviewsCls{
+  border: 1px solid white;
+  height: 210px;
+  width: 95%;
+  margin:5px 5px 5px 15px;
+  overflow: auto;
+}
+
+.reviewTxtCls{
+  background-color: lightpink;
+  padding:5px;
+  margin-bottom: 2px;
+}
+
+.reviewFlashCls{
+  margin:0 auto;
+  width:320px;
+  height: 35px;
+}
+
+.titlePCls{
+  text-decoration: underline;
+}
+
+.reviewTxtCls.p{
+  margin:0;
+}
+
+
+.usrCls{
+  font-style: italic;
+  color:red;
+}
+
+.nameCls, a:hover {
+  text-decoration:none;
+  color:brown;
+}
+
+/*
+.displayCls{
+  display:inline;
+}
+
+*/
+/* rgb(255,64,129)*/

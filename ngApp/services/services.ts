@@ -50,6 +50,7 @@ namespace myimdb.Services {
 
     export class CinemasService{
       private CinemasResource;
+      private SearchResource;
 
       public listCinemas(){
         return this.CinemasResource.query();
@@ -67,8 +68,12 @@ namespace myimdb.Services {
         return this.CinemasResource.remove({id:id}).$promise;
       }
 
+      public searchMovies(srchTxt){
+        return this.SearchResource.query({searchTxt:srchTxt});
+      }
       constructor($resource:ng.resource.IResourceService){
         this.CinemasResource = $resource("/api/cinemas/:id");
+        this.SearchResource = $resource("/api/searchMovie");
       }
     }
 

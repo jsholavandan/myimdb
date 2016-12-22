@@ -7,6 +7,10 @@ namespace myimdb.Controllers {
         this.$state.go("admin.addMovie");
     }
 
+  /*  public showMovie(movieId){
+      this.$state.go("admin.displayMovie",{id:movieId});
+    } */
+
     public deleteMovie(id){
       this.$uibModal.open({
         templateUrl: '/ngApp/views/deleteMovie.html',
@@ -185,4 +189,122 @@ namespace myimdb.Controllers {
   }
   angular.module("myimdb").controller("DeleteMovieController", DeleteMovieController);
 
+  export class DisplayMovieController{
+    public movie;
+    public curNavItem;
+
+    public showMovieDetails(){
+    //  console.log("show movie");
+      this.curNavItem = "movieDetails";
+      this.$state.go('displayMovie.displayDetails',{movieObj:this.movie});
+    }
+
+    public showCast(){
+    //  console.log("show movie");
+      this.curNavItem = "cast";
+      this.$state.go('displayMovie.displayCast',{movieObj:this.movie});
+    }
+
+    public showReviews(){
+    //  console.log("show movie");
+      this.curNavItem = "reviews";
+      this.$state.go('displayMovie.displayReviews',{movieObj:this.movie});
+    }
+
+    constructor(private cinemasService: myimdb.Services.CinemasService,
+                private $stateParams: ng.ui.IStateParamsService,
+                private $state:ng.ui.IStateService){
+       this.movie = this.cinemasService.getCinema(this.$stateParams["id"]);
+       this.showMovieDetails();
+    }
+  }
+
+  angular.module("myimdb").controller("DisplayMovieController", DisplayMovieController);
+
+  export class MovieDetailsController{
+    public movie;
+
+
+    constructor(private $stateParams:ng.ui.IStateParamsService){
+      this.movie = $stateParams["movieObj"];
+    //  console.log("stateparams");
+    //  console.log($stateParams["movieObj"]);
+    }
+  }
+  angular.module("myimdb").controller("MovieDetailsController", MovieDetailsController);
+
+  export class DisplayCastController{
+    public movie;
+
+    constructor(private $stateParams:ng.ui.IStateParamsService){
+      this.movie = this.$stateParams["movieObj"];
+      console.log(this.$stateParams["movieObj"]);
+    }
+
+  }
+  angular.module("myimdb").controller("DisplayCastController", DisplayCastController);
+
+  export class DisplayReviewsController{
+    public overStar;
+    public percent;
+    public rate = 0;
+    public movie;
+    public username;
+    public reviewObj:any = {};
+
+
+    public hoveringOver(value) {
+      this.overStar = value;
+      this.percent = 100 * (value / 5);
+    }
+
+    public addReview(){
+      if(this.reviewObj.username !== undefined){
+        console.log(this.reviewObj.text);
+        console.log(this.reviewObj.text !== undefined);
+        if((this.reviewObj.text !== "" && this.reviewObj.text !== undefined) || this.rate > 0 ){
+          if(this.reviewObj.text !== "" || this.reviewObj.text !== undefined){
+            this.movie.reviews.push(this.reviewObj);
+          }
+          if(this.rate > 0){
+            this.movie.rating.push(this.rate);
+          }
+          this.cinemasService.saveCinema(this.movie).then((data) => {
+            this.Flash.create("success", "Review saved.");
+          }).catch((err) => {
+            this.Flash.create("danger", "Error occured. Try again.");
+          });
+        }else{
+          this.Flash.create("danger","Please fill in the review before submitting.");
+        }
+      }else{
+        this.Flash.create("danger", "Please login to post reviews.");
+      }
+
+    }
+
+    constructor(private $stateParams: ng.ui.IStateParamsService,
+                private cinemasService: myimdb.Services.CinemasService,
+                private $rootScope:ng.IRootScopeService,
+                private Flash){
+
+      this.movie = this.$stateParams["movieObj"];
+      this.reviewObj.username = this.$rootScope.username;
+    }
+
+  }
+
+  angular.module("myimdb").controller("DisplayReviewsController", DisplayReviewsController);
+
+  export class SearchMoviesController{
+    public movies;
+
+
+    constructor(private $stateParams:ng.ui.IStateParamsService,
+                private cinemasService: myimdb.Services.CinemasService){
+      let searchTxt = this.$stateParams['txt'];
+      this.movies = this.cinemasService.searchMovies(searchTxt);
+    }
+  }
+  angular.module("myimdb").controller("SearchMoviesController", SearchMoviesController);
 }

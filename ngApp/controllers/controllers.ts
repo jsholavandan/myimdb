@@ -2,6 +2,12 @@ namespace myimdb.Controllers {
 
     export class MainController{
 
+      public searchTxt;
+
+      public search(){
+        this.$state.go('searchResults', {txt: this.searchTxt});
+      }
+
       public login(){
         this.$uibModal.open({
           templateUrl:"ngApp/views/login.html",
