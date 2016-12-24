@@ -6,8 +6,8 @@
         <span><strong>Movie Name</strong></span>
       </div>
       <div flex="20" class="rowCls" ng-repeat="movie in controller.movies | orderBy: '-rate' | limitTo:5" >
-        <a href="#" ui-sref="displayMovie({id:movie._id})" class="nameCls"><span>{{movie.name}}</span></a>      
+        <a href="#" ui-sref="displayMovie({id:movie._id})" class="nameCls"><span>{{movie.name}}</span></a>
       </div>
   </div>
 </div>
-<flash-message duration="5000" class="myFlashCls"></flash-message>
+<flash-message class="myFlashCls"></flash-message>

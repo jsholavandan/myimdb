@@ -50,8 +50,10 @@ namespace myimdb.Controllers {
     public cinema;
     public actors;
     public selectSettings = {
+      scrollableHeight: '120px',
       displayProp: 'name',
-      idProp: '_id'
+      idProp: '_id',
+      scrollable: true
     };
     public actorsmodel = [];
 
@@ -101,8 +103,10 @@ namespace myimdb.Controllers {
     public cinema;
     public actors;
     public selectSettings = {
+      scrollableHeight: '120px',
       displayProp: 'name',
-      idProp: '_id'
+      idProp: '_id',
+      scrollable: true
     };
     public actorsmodel = [];
 
@@ -301,9 +305,13 @@ namespace myimdb.Controllers {
 
 
     constructor(private $stateParams:ng.ui.IStateParamsService,
-                private cinemasService: myimdb.Services.CinemasService){
+                private cinemasService: myimdb.Services.CinemasService,
+                private Flash){
       let searchTxt = this.$stateParams['txt'];
       this.movies = this.cinemasService.searchMovies(searchTxt);
+      if(this.movies.length === 0){
+        this.Flash.create("danger"," No results found.")
+      }
     }
   }
   angular.module("myimdb").controller("SearchMoviesController", SearchMoviesController);

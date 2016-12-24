@@ -5,7 +5,7 @@
 .titleDivCls{
   height: 35px;
   width: 100%;
-  background-color: #CC6600;
+  background-color: #ADFF2F;
   color:black;
   padding-top:5px;
 }
@@ -28,9 +28,13 @@ md-toolbar.material-icons{
   font-size: 20px;
 }
 
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar){
+  background-color: #006400;
+}
+
 .rowCls{
   border: 1px solid brown;
-  height: 35px;
+/*  height: 35px;  */
   padding:5px;
 }
 
@@ -38,6 +42,29 @@ md-toolbar.material-icons{
   width: 40%;
 }
 
+.tblCls{
+/*  border-bottom:1px solid brown; */
+}
+
+/* table styles */
+.rowCls{
+  max-height: 40px;
+}
+
+.actorRowCls{
+  height: 30px;
+  border: 1px solid brown;
+}
+.actorNameCls{
+  height:35px;
+}
+
+.actorListDiv{
+  width: 350px;
+  margin: 0 auto;
+  overflow-y:auto;
+  height: 75%;
+}
 
 .inputCls{
   min-height:20px;
@@ -81,7 +108,7 @@ md-toolbar input{
 
 .modalHeaderCls{
   height : 35px;
-  background-color: #3F51B5;
+  background-color: #006400;
   color: white;
   padding: 5px;
 }
@@ -131,21 +158,14 @@ md-sidenav {
 }
 
 md-sidenav{
-  background-color: rgb(66,66,66);
+  background-color: #228B22;
   color:yellow;
 }
 
 .align-center{
   text-align:center;
 }
-.tblCls{
-  border-bottom:1px solid brown;
-}
 
-/* table styles */
-.rowCls{
-  max-height: 40px;
-}
 
 
 
@@ -187,11 +207,14 @@ select{
 
 .selectCls{
   font-size: 12px;
-
 }
 
 .dropdown-menu{
   font-size:12px;
+  height: 100px;
+}
+ul.dropdown-menu{
+  height: 100px;
 }
 
 .deleteCloseIconCls{
@@ -214,7 +237,7 @@ select{
   font-size: smaller;
 }
 md-sidenav.md-closed{
-  background-color: rgb(255,64,129);
+  background-color: #008000;
   color:white;
 }
 

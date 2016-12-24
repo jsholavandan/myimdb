@@ -3,25 +3,29 @@
 </div>
 <h3 class="align-center"><strong>Actors</strong></h3>
 <br>
-<div layout="row" layout-align="center start">
-  <div flex="15" class="tblCls align-center">
-    <strong>Name</strong>
-  </div>
-  <div flex="5" class="tblCls align-center">
-    Edit
-  </div>
-  <div flex="5" class="tblCls align-center">
-    Delete
-  </div>
-</div>
-<div ng-repeat="actor in controller.actors" layout="row" layout-align="center start" >
-  <div flex="15" class="tblCls align-center rowCls">
-  <p class="pCls">{{actor.name}}</p>
-  </div>
-  <div flex="5" class="tblCls align-center rowCls">
-  <a ui-sref="admin.editActor({id:actor._id})"><i class="material-icons link-icon-Cls">edit</i></a>
-  </div>
-  <div flex="5" class="tblCls align-center rowCls ">
-  <a href="#" ng-click="controller.deleteActor(actor._id)"><i class="material-icons link-icon-Cls delCls">close</i></a>
+<div class="actorListDiv" layout-align="center start" >
+  <div class="" layout="column" >
+    <div layout="row" layout-align="center start" class="actorRowCls">
+      <div flex="45" class="align-center">
+        <span><strong>Name</strong></span>
+      </div>
+      <div flex="15" class=" align-center ">
+        <span>Edit</span>
+      </div>
+      <div flex="15" class=" align-center ">
+        <span>Delete</span>
+      </div>
+    </div>
+    <div ng-repeat="actor in controller.actors" layout="row" layout-align="center start" class="actorRowCls" >
+      <div flex="45" class=" align-center ">
+        <span><p class="pCls">{{actor.name}}</p></span>
+      </div>
+      <div flex="15" class=" align-center ">
+        <span><a ui-sref="admin.editActor({id:actor._id})"><i class="material-icons link-icon-Cls">edit</i></a></span>
+      </div>
+      <div flex="15" class=" align-center  ">
+        <span><a href="#" ng-click="controller.deleteActor(actor._id)"><i class="material-icons link-icon-Cls delCls">close</i></a></span>
+      </div>
+    </div>
   </div>
 </div>
