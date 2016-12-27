@@ -33,7 +33,7 @@ namespace myimdb.Controllers {
                 private $rootScope:ng.IRootScopeService,
                 private $state:ng.ui.IStateService){
 
-      if(this.$rootScope.currentUser === false || this.$rootScope.role === 'admin'){
+      if(this.$rootScope.currentUser === false || this.$rootScope.role !== 'admin'){
         this.$state.go('home');
       }else{
         this.users = this.usersService.listUsers();
@@ -76,7 +76,7 @@ namespace myimdb.Controllers {
                   private $state: ng.ui.IStateService,
                   private Flash,
                   private $rootScope: ng.IRootScopeService){
-        if(this.$rootScope.currentUser === false || this.$rootScope.role === 'admin'){
+        if(this.$rootScope.currentUser === false || this.$rootScope.role !== 'admin'){
           this.$state.go('home');
         }else{
           let id = this.$stateParams["id"];

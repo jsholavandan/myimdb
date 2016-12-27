@@ -17,7 +17,7 @@ namespace myimdb.Controllers {
 
 
     constructor(private $state:ng.ui.IStateService, private $rootScope: ng.IRootScopeService){
-      if(this.$rootScope.currentUser === false || this.$rootScope.role === 'admin'){
+      if(this.$rootScope.currentUser === false || this.$rootScope.role !== 'admin'){
         this.$state.go('home');
       }
 

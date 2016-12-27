@@ -19,6 +19,7 @@
       </ng-messages>
     </div>
   </div>
+  <flash-message duration="5000" on-dismiss="controller.closeDialog()"></flash-message>
   <div class="modal-footer">
     <button type="submit" class="btn btn-primary buttonCls">Login</button>
     <button type="button" class="btn btn-warning buttonCls" ng-click="controller.closeDialog()">Cancel</button>

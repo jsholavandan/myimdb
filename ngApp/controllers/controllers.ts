@@ -33,11 +33,13 @@ namespace myimdb.Controllers {
       public logout(){
         this.$rootScope.currentUser = false;
         this.$rootScope.username = null;
+        this.$rootScope.role = false;
         this.$window.localStorage.removeItem('token');
         this.$state.go('home');
       }
 
       public admin(){
+        console.log("admin");
         this.$state.go('admin');
       }
 

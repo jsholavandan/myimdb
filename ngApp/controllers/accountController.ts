@@ -1,10 +1,7 @@
 namespace myimdb.Controllers {
 
     export class AccountController{
-      public userCredentials ={
-        username:'sai',
-        password:'baba'
-      };
+      public userCredentials;
       public user;
 
       public closeDialog(){
@@ -20,10 +17,11 @@ namespace myimdb.Controllers {
           this.$rootScope.$broadcast("userLoggedIn");
           this.$state.go('home');
           console.log(res);
+          this.closeDialog();
         }).catch((err) =>{
+          this.Flash.create('danger', 'Error occured. Please try again.');
           console.log(err);
         });
-        this.closeDialog();
       }
 
       public setToken(data){
@@ -54,7 +52,6 @@ namespace myimdb.Controllers {
         }).catch((err) => {
           this.Flash.create('danger', 'Error occured. Please try again.');
           console.log(err);
-          this.closeDialog();
         });
 
       }

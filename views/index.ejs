@@ -33,7 +33,7 @@
               <md-button class="nav-btn btnCls" ng-click="controller.login()">Login</md-button>
               <md-button class="nav-btn btnCls" ng-click="controller.register()">Register</md-button>
             </div>
-            <div ng-if="currentUser !== false">
+            <div ng-if="currentUser !== false && role === 'admin'">
               <md-button class="nav-btn btnCls" ng-click="controller.admin()">Admin</md-button>
             </div>
             <div ng-if="currentUser !== false">
